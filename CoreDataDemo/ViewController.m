@@ -33,7 +33,7 @@ static int personId =0;
     personId += maxPersonID;
     // 添加tableView
     [self.view addSubview:self.tableView];
-    // 添加数据
+    // TODO: 查询所有数据 添加数据
     [self.dataSource addObjectsFromArray:[[PersonManager shareManager] readAllData]];
     [self.tableView reloadData];
 }
@@ -43,12 +43,12 @@ static int personId =0;
 #pragma mark - 添加数据
 
 - (void)addItem {
-    
+    // TODO: 新增
     [[PersonManager shareManager] insertDataWithPersonID:[NSString stringWithFormat:@"%d",personId]
                                                     name:[NSString stringWithFormat:@"客服%02d",personId]
                                                      age:arc4random()%20
                                                    photo:@"photo"];
-    
+    // TODO: 查询
     [self.dataSource addObject:[[PersonManager shareManager] searchDataWithPersonID:[NSString stringWithFormat:@"%d",personId]]];
     [self.tableView reloadData];
     personId++;
@@ -93,6 +93,7 @@ static int personId =0;
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     Person *person =self.dataSource[indexPath.row];
+    // TODO: 删除
     [[PersonManager shareManager] deleteDataWithPersonID:person.personID];
     [self.dataSource removeObjectAtIndex:indexPath.row];
     [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
