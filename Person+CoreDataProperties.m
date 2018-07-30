@@ -2,7 +2,7 @@
 //  Person+CoreDataProperties.m
 //  CoreDataDemo
 //
-//  Created by sjimac01 on 2018/5/2.
+//  Created by sjimac01 on 2018/7/30.
 //  Copyright © 2018年 sjimac01. All rights reserved.
 //
 //
@@ -15,9 +15,10 @@
 	return [NSFetchRequest fetchRequestWithEntityName:@"Person"];
 }
 
-@dynamic personID;
-@dynamic name;
 @dynamic age;
+@dynamic name;
+@dynamic personID;
 @dynamic photo;
+@dynamic trackRecord;
 
 @end

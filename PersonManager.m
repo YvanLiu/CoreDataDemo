@@ -62,6 +62,11 @@ static PersonManager *personManager;
     person.name     =name;
     person.age      =age;
     person.photo    =photo;
+    NSMutableArray *records =[NSMutableArray arrayWithCapacity:2];
+    NSDictionary *recode1 =@{@"company":@"xxx科技有限公司",@"date":@"2011-1013"};
+    NSDictionary *recode2 =@{@"company":@"xxx集团",@"date":@"2013-1018"};
+    [records addObjectsFromArray:@[recode1,recode2]];
+    person.trackRecord =records;
     
     NSError *error = nil;
     if ([self.context save:&error]) {

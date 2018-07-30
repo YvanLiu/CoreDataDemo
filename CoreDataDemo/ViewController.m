@@ -50,6 +50,9 @@ static int personId =0;
                                                    photo:@"photo"];
     // TODO: 查询
     [self.dataSource addObject:[[PersonManager shareManager] searchDataWithPersonID:[NSString stringWithFormat:@"%d",personId]]];
+    Person *person =[self.dataSource lastObject];
+    NSArray *records =(NSArray *)person.trackRecord;
+    NSLog(@"%@",records);
     [self.tableView reloadData];
     personId++;
 }
